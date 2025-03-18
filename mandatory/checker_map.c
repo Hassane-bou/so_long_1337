@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:45:54 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 12:10:51 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:57:45 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_rectangular(char **map, int height)
 		line_len = ft_strlen(map[i]);
 		if (map[i][line_len - 1] == '\n')
 			line_len--;
-		if (line_len != width || ft_strlen(map[i]) > 128)
+		if (line_len != width || ft_strlen(map[i]) > 129)
 			return (0);
 		i++;
 	}

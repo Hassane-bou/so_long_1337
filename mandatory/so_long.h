@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:12:41 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 14:16:36 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:01:21 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include "../mlx/mlx.h"
 # include "../printf/ft_printf.h"
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -73,10 +72,8 @@ int			handle_keycode(int keycode, t_game *game);
 void		move_player(t_game *game, int dx, int dy);
 void		error_function(void);
 void		free_map(char **map, int height);
-void		free_map1(int **map, int height);
 int			count_collectible(char **map);
 void		render_map(t_game *game);
-void		error_function(void);
 int			main(int ac, char **av);
 
 #endif

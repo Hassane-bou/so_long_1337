@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:41:54 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 15:13:03 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:24:28 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void	move_player(t_game *game, int dx, int dy)
 int	handle_keycode(int keycode, t_game *game)
 {
 	if (keycode == 53)
+	{
+		mlx_destroy_window(game->mlx,game->win);
 		exit(0);
+	}
 	else if (keycode == 13)
 		move_player(game, 0, -1);
 	else if (keycode == 1)

@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:03:40 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 13:55:57 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:42:51 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,6 @@ void	free_map(char **map, int height)
 	}
 	free(map);
 	map = NULL;
-}
-
-void	free_map1(int **map, int height)
-{
-	int	i;
-
-	i = 0;
-	while (i < height)
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
 }
 
 void	check_position_player(char **map, int height)

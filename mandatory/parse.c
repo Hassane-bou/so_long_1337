@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:30:17 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 14:57:38 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:08:33 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	validate_map(char **map, int height)
 {
 	if (!is_rectangular(map, height))
 	{
-		write(2, "Map Inavalid!\n", 15);
+		write(2, "Map Invalid!\n", 14);
 		free_map(map, height);
 		return (0);
 	}
 	if (!check_walls(map, height))
 	{
-		write(2, "Map Inavalid!\n", 15);
+		write(2, "Map Invalid!\n", 14);
 		free_map(map, height);
 		return (0);
 	}
