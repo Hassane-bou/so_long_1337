@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:12:36 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/18 13:31:17 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:03:01 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	clean_map(t_game *game)
 {
-	free_map(game->map, game->map_height);
-	exit(0);
+	clean_exit(game, 0);
+	return (0);
 }
 
 void	put_mlx(t_game *game)
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 			return (write(1, "File Invalid\n", 14), 0);
 		game = malloc(sizeof(t_game));
 		if (!game)
-			return (1);
+			error_function();
 		height = 0;
 		game->steps = 0;
 		game->map = read_map(av[1], &height);
@@ -50,7 +50,6 @@ int	main(int ac, char **av)
 		check_parse(game, height);
 		game->map_height = get_map_height(game->map);
 		put_mlx(game);
-		free_map(game->map, game->map_height);
 	}
 	else
 		return (write(2, "Erreur\n", 7), 1);

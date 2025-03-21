@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror 
 SRCS =./get_next_line/get_next_line.c  ./get_next_line/get_next_line_utils.c  ./mandatory/so_long.c ./mandatory/utils.c\
 		./mandatory/checker_element.c ./mandatory/checker_map.c ./mandatory/checker_path.c ./mandatory/flood_fill.c ./mandatory/free_allocate.c\
 		./mandatory/move_player.c ./mandatory/parse.c ./mandatory/read_map.c ./mandatory/put_img.c

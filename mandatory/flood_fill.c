@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 12:29:34 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 16:40:43 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:49:24 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	**allocate_cpy(int **cpymap, int i, int width)
 			free(cpymap[i - 1]);
 			i--;
 		}
-		return (write(2, "Erreur\n", 8), free(cpymap), NULL);
+		write(2, "Erreur\n", 8);
+		free(cpymap);
+		return (NULL);
 	}
 	return (cpymap);
 }

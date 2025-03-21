@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:12:41 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/18 12:01:21 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:48:18 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void		free_map(char **map, int height);
 int			count_collectible(char **map);
 void		render_map(t_game *game);
 int			main(int ac, char **av);
+void		clean_exit(t_game *game, int exit_code);
 
 #endif

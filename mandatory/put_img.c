@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:19:48 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/18 13:15:02 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:05:54 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@ void	load_image(t_game *game)
 	int	img_width;
 	int	img_height;
 
-	img_width = TAILLE_SIZE;
-	img_height = TAILLE_SIZE;
 	game->img_wall = mlx_xpm_file_to_image(game->mlx, "img/wall.xpm",
-			&img_height, &img_width);
+			&img_width, &img_height);
 	game->img_player = mlx_xpm_file_to_image(game->mlx, "img/player.xpm",
-			&img_height, &img_width);
+			&img_width, &img_height);
 	game->img_floor = mlx_xpm_file_to_image(game->mlx, "img/bag.xpm",
-			&img_height, &img_width);
+			&img_width, &img_height);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, "img/Exit.xpm",
-			&img_height, &img_width);
+			&img_width, &img_height);
 	game->img_collectibles = mlx_xpm_file_to_image(game->mlx, "img/gold.xpm",
-			&img_height, &img_width);
-	if (!game->img_wall || !game->img_player || !game->collectibles
+			&img_width, &img_height);
+	if (!game->img_wall || !game->img_player || !game->img_collectibles
 		|| !game->img_floor || !game->img_exit)
+	{
 		error_function();
+		clean_exit(game, 1);
+	}
 }
 
 void	put_img(t_game *game, int y, int x)
@@ -60,10 +61,10 @@ void	render_map(t_game *game)
 
 	y = 0;
 	if (!game || !game->map)
-		exit(1);
+		clean_exit(game, 1);
 	if (!game->img_exit || !game->img_collectibles || !game->img_floor
 		|| !game->img_player || !game->img_wall)
-		exit(1);
+		clean_exit(game, 1);
 	while (y < game->map_height)
 	{
 		x = 0;

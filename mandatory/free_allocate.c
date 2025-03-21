@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:03:40 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/16 16:42:51 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:48:56 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	free_map(char **map, int height)
 {
 	int	i;
 
+	if (!map)
+		return ;
 	i = 0;
 	while (i < height)
 	{

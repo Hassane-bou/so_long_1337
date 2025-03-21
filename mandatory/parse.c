@@ -6,7 +6,7 @@
 /*   By: haboucha <haboucha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:30:17 by haboucha          #+#    #+#             */
-/*   Updated: 2025/03/17 14:08:33 by haboucha         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:54:23 by haboucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	validate_map(char **map, int height)
 
 void	initialiser(t_game *game, t_data *data)
 {
+	game->collectibles = count_collectible(game->map);
 	data->x = game->player_x;
 	data->y = game->player_y;
 	data->player = 0;
@@ -55,16 +56,25 @@ void	check_parse(t_game *game, int height)
 	t_data	data;
 
 	if (!validate_map(game->map, height))
+	{
+		free(game);
 		exit(1);
+	}
 	find_p(game);
 	if (game->player_x == -1 || game->player_y == -1)
-		check_position_player(game->map, height);
+	{
+		write(2, "Player position not found or invalid\n", 36);
+		free_map(game->map, height);
+		free(game);
+		exit(1);
+	}
 	game->map_width = ft_strlen(game->map[0]) - 1;
 	initialiser(game, &data);
 	if (!check_map_solvable(&data, game))
 	{
 		write(2, "impossible d'apprendre tous les collectibles\n", 46);
 		free_map(game->map, height);
+		free(game);
 		exit(1);
 	}
 }
